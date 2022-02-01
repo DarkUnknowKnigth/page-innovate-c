@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff8300',
+            secondary: '#162037',
+          }
+        }
+      }
+    }
+  </script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Innovate-c</title>
+</head>
+<body class="bg-gradient-to-t from-orange-700 via-brown-500 to-gray-700 text-white" x-data="init()" x-init="updateBanner()">
+  <script>
+    function init(){
+      return {
+        urls:['img/banner1.jpg','img/banner2.jpg','img/banner3.jpg'], 
+        index:0,
+        menu:false,
+        clients:[
+          'Municipio de San Fernando Chiapas.',
+          'Alianza Financiera Social',
+          'Multinomina - Servicios Financieros',
+          'Tubos y Conexiones Aguadren',
+          'Tiendas SuperTodo Tuxtla Gutiérrez'
+        ],
+        updateBanner(){
+          setInterval(()=>{
+            if(this.index<2){
+              this.index++;
+            }else{
+              this.index = 0;
+            }
+          },5000)
+        }
+      }
+    };
+  </script>
+  <div>
+    <div class="fixed top-0 z-40 bg-orange-600 md:px-24 px-2 w-full h-16 font-bold text-white rounded-b-xl">
+      <div class="flex flex-row w-full items-center justify-between md:justify-start h-full gap-5">
+        <a href="#">
+          <img src="img/logo.png" alt="logo" class="h-12 rounded-full animate__animated animate__zoomIn">
+        </a>
+        <h1 class="text-xl md:text-md uppercase">
+          <a href="#">
+            Innovate-c
+          </a>
+        </h1>
+        <!-- web menu -->
+        <div class="mx-10 flex-row items-center justify-between gap-5 hidden md:flex">
+          <a href="#about">¿Quienes somos?</a>
+          <a href="#services">Nuestros servicios</a>
+          <a href="#clients">Nuestros Clientes</a>
+          <a href="#contact">Contáctanos</a>
+        </div>
+        <!-- hamburguesa -->
+        <span class="rounded-full flex md:hidden" @click="menu=!menu">
+          <svg x-show="!menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <img class="animate__animated animate__zoomIn w-full object-cover h-96 rounded-b-lg blur-sm" :src="urls[index]" alt="banner">
+    <section id="banner" class="w-full relative z-30">
+      <div class="-my-64 flex flex-col items-center justify-center gap-5 w-full px-24">
+        <p class="font-light p-2 text-justify text-white rounded-lg bg-orange-500 italic text-base md:text-xl">"Trabajando en la creación de soluciones innovadoras, garantizando la total satisfacción de nuestros clientes."</p>
+        <a href="#contact" class="animate__zoomInLeft animate__animated rounded-full p-4 mx-auto w-auto uppercase bg-orange-500 font-bold text-white">Innovación a tu alcance</a>
+      </div>
+    </section>
+    <!-- quienes somos -->
+    <section id="about" class="text-justify w-full">
+      <div class="mt-64 md:mt-96 pt-12 md:pt-20 w-full max-w-6xl mx-auto px-5">
+        <h2 class="text-center font-bold text-lg md:text-3xl my-5 border-b-4 border-white rounded-lg w-auto py-2">¿Quienes somos?</h2>
+        <p>
+          <b class="uppercase">Innovate-c</b>, Empresa joven, pero con una visión futurista en la creación de productos innovadores y soluciones informáticas a la medida, mediante el uso de las tecnologías de vanguardia e ingeniería de datos. 
+        </p>
+        <br>
+        <p>
+          En <b class="uppercase">Innovate-c</b>, trabajamos en conjunto con las empresas y entes de gobierno para ayudar a la creación de soluciones innovadoras, que ayuden a la toma de decisiones y sobre todo garantizar que la información que emane de nuestros desarrollos sean confiables y de satisfacción total hacia nuestros clientes. 
+        </p>
+        <!-- grid perron -->
+        <div class="grid grid-cols-2 gap-2 max-w-4xl mx-auto my-10">
+          <img class="w-full rounded-lg animate__animated animate__zoomIn col-span-2 row-span-2" :src="urls[2]" alt="">
+          <img class="w-full rounded-lg animate__animated animate__zoomIn" :src="urls[0]" alt="">
+          <img class="w-full rounded-lg animate__animated animate__zoomIn" :src="urls[1]" alt="">
+
+        </div>
+        <br>
+        <p>
+          Empresa dedicada al desarrollo de software y consultoría informática, contamos con equipo de expertos en el ramo, para dar solución a empresas y organismos de gobierno a la medida, así como con consultoría de transformación e innovación digital. Innovate-c, le ayuda a convertir sus datos en información valiosa para la toma de decisiones.
+        </p>
+      </div>
+    </section>
+    <!-- Servicios -->
+    <section id="services" class="text-justify w-full">
+      <div class="mt-5 md:mt-10 pt-12 md:pt-20 w-full max-w-6xl mx-auto px-5">
+        <h2 class="text-center font-bold text-lg md:text-3xl my-5 border-b-4 border-white rounded-lg w-auto py-2">Nuestros Servicios</h2>
+        <!-- showcase -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-start">
+          <div class="shadow-lg flex flex-col items-center justify-start h-full bg-white rounded-lg my-5 animate__animated animate__fadeInBottomLeft">
+            <span class="font-bold p-5 bg-gray-700 w-full rounded-t-lg  text-white">Desarrollo de software</span>
+            <div class="rounded-lg text-center w-full text-gray-700">
+              <img src="img/showcase/code.jpg" alt="desarrollo de software">
+              <div class="text-justify p-6 h-full">
+                <p>
+                  Innovate-c, se especializa en el desarrollo de software, con herramientas de programación de vanguardia. Nuestro equipo de desarrolladores de aplicaciones puede crear aplicaciones excepcionales para una amplia gama de dispositivos, incluidos computadoras de escritorio, dispositivos móviles y tabletas. Con la ayuda de nuestra experiencia en la industria, podemos brindar al usuario la mejor experiencia de aplicación a través de múltiples canales.
+                </p>
+                <p>
+                  En Innovate-c, trabajamos en tiempo real con nuestros clientes, la cual hace que la colaboración entre cliente - programador cree una sensación de colaboración presencial. Aplicamos la responsabilidad y transparencia en nuestro modelo de negocio con informes regulares de gestión y progreso del desarrollo requerido.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-lg flex flex-col items-center justify-start h-full bg-white rounded-lg my-5 animate__animated animate__fadeInUp">
+            <span class="font-bold p-5 bg-gray-700 w-full rounded-t-lg  text-white">Redes y Telecomunicaciones</span>
+            <div class="rounded-lg text-center w-full text-gray-700">
+              <img src="img/showcase/web.jpg" alt="desarrollo de software">
+              <div class="text-justify p-6 h-full">
+                <p>
+                  En Innovate-c, diversificamos nuestros servicios debido a la demanda de conectividad a la RED que en la actualidad existe, por eso contamos con el respaldo de profesionales en redes, tecnologías de la información y telecomunicaciones, para que puedan lograr cosas increíbles en cada proyecto. Creemos que la conectividad es pieza clave para el futuro de la sociedad y de las organizaciones, por lo que queremos impulsar este cambio tecnológico y digital, de la mano de quien lo hace posible, es decir nuestros clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-lg flex flex-col items-center justify-start h-full bg-white rounded-lg my-5 animate__animated animate__fadeInBottomRight">
+            <span class="font-bold p-5 bg-gray-700 w-full rounded-t-lg  text-white">Marketing Digital</span>
+            <div class="rounded-lg text-center w-full text-gray-700">
+              <img src="img/showcase/marketing.jpg" alt="desarrollo de software">
+              <div class="text-justify p-6 h-full">
+                <p>
+                  Hoy en día posicionar tu empresa a través de Internet, requiere de estrategias de comercialización por medios digitales. En Innovate-c, hacemos esto hacemos posible, por medio de la Mercadotecnia Digital, ya que este nos permite atraer nuevos negocios, crear relaciones y desarrollar una identidad de marca.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- clientes -->
+    <section id="clients" class="text-justify w-full">
+      <div class="mt-5 md:mt-10 pt-12 md:pt-20 w-full max-w-6xl mx-auto px-5">
+        <!-- for de clientes -->
+        <h2 class="text-center font-bold text-lg md:text-3xl my-5 border-b-4 border-white rounded-lg w-auto py-2">Nuestros Clientes</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5" x-data="{animated:0}">
+          <template x-for="(client, index) in clients">
+            <div class="shadow-lg rounded-tr-lg rounded-bl-lg animate__animated p-5 md:p-10" :class="animated === index?'animate__rubberBand bg-gray-500 text-white':'bg-white text-gray-700'" x-on:mouseover="animated=index">
+              <span class="text-xl font-bold text-orange text-center" x-text="client"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+    <!-- contacto -->
+    <section id="contact" class="text-justify w-full">
+      <div class="mt-5 md:mt-10 pt-12 md:pt-20 w-full max-w-6xl mx-auto px-5">
+        <!-- for de clientes -->
+        <h2 class="text-center font-bold text-lg md:text-3xl my-5 border-b-4 border-white rounded-lg w-auto py-2">Contacto</h2>
+        <div class="flex flex-col text-center md:flex-row gap-5">
+          <b>
+            Telefonos
+          </b>
+          <span>
+            (961)  448 7912
+          </span>
+          <span>
+            (961)  154 0379
+          </span>
+          <span>
+            (961)  660 7091
+          </span>
+        </div>
+      </div>
+    </section>
+    <!-- mobile menu -->
+    <div @click="menu= false" @click.away="menu=false" class="top-0 border-r-4 border-orange-700 fixed w-1/2 z-40 h-full rounded-r-lg bg-orange-500 p-4" x-show="menu">
+      <img src="img/logo.png" class="w-32 h-32 rounded-full bg-white mx-auto my-12 p-1" alt="">
+      <div class="flex flex-col items-start justify-start gap-5 pt-12">
+        <a class="animate__animated animate__slideInLeft rounded-r-lg px-2 border-b border-gray-700 my-2 font-bold text-white w-full flex items-center gap-5" href="#about">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          ¿Quienes somos?
+        </a>
+        <a class="animate__animated animate__slideInLeft rounded-r-lg px-2 border-b border-gray-700 my-2 font-bold text-white w-full flex items-center gap-5" href="#services">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+          </svg>
+          Nuestros servicios
+        </a>
+        <a class="animate__animated animate__slideInLeft rounded-r-lg px-2 border-b border-gray-700 my-2 font-bold text-white w-full flex items-center gap-5" href="#clients">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          Nuestros Clientes
+        </a>
+        <a class="animate__animated animate__slideInLeft rounded-r-lg px-2 border-b border-gray-700 my-2 font-bold text-white w-full flex items-center gap-5" href="#contact">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Contáctanos
+        </a>
+        <button class="animate__animated animate__slideInLeft rounded-r-lg px-2 border-b border-red-600 font-bold text-white w-full flex items-center gap-5" @click="menu=false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Cerrar
+        </a>
+      </div>
+    </div>
+  </div>
+  <footer class="px-24 py-5 md:h-48 bg-orange-600 rounded-t-xl mt-24 flex flex-col md:flex-row justify-beteeen gap-10 items-center text-center">
+    <a class="font-bold text-xl text-white uppercase p-2" href="#">
+      Innovate-C
+    </a>
+    <a href="#">
+      <img src="img/logo.png" alt="logo" class="h-12 rounded-full animate__animated animate__zoomIn">
+    </a>
+    <div class="flex flex-col items-center text-white">
+      <span class="text-xl font bold">Direccion</span>
+      Av. Cholula N° 593, Col. La Misión, Tuxtla Gutiérrez, Chiapas
+    </div>
+    <div class="flex flex-col items-center text-white">
+      <span class="text-xl font bold">Teléfonos</span>
+      <span>(961)  448 7912</span>
+      <span>(961)  154 0379</span>
+      <span>(961)  660 7091</span>
+    </div>
+  </footer>
+</body>
+</html>
